@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "2dfeb4db-320d-4c84-b794-d1b1fa087bf3",
+		"name": "Acme Co",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "List Organizations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/organizations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Organizations Page n",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/organizations.json?page=2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Organization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/organizations/1500493432881",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations",
+								"1500493432881"
+							],
+							"query": [
+								{
+									"key": "role[]",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "role[]",
+									"value": "agent",
+									"disabled": true
+								},
+								{
+									"key": "role[]",
+									"value": "end-user",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Organizations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/organizations/count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Organization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organization\": {\r\n        \"external_id\": \"20287205127\",\r\n        \"name\": \"Beecher Supply\",\r\n        \"domain_names\": [\r\n            \"some-domain.com\"\r\n        ],\r\n        \"details\": \"Secondary supplier for Olympus\",\r\n        \"notes\": \"\",\r\n        \"tags\": [\r\n            \"vip\",\r\n            \"mcopland\"\r\n        ],\r\n        \"organization_fields\": {\r\n            \"merchant_id\": \"amer\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/organizations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Many Organizations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"organizations\":\r\n\r\n[{\"external_id\":\"15976972608\",\"name\":\"1,000 Bulbs\",\"domain_names\":[\"1000bulbs.com\",\"protonmail.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"15976972628\",\"name\":\"1-800-Flowers.Com Inc\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Hello\\nthis is a new line\\nand another\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"15976972648\",\"name\":\"1-Stop Connections\",\"domain_names\":[\"1-stop.biz\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"3535325388\",\"name\":\"1077207-Moneygram International\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"360041750613\",\"name\":\"123456789\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"15976972668\",\"name\":\"2U\",\"domain_names\":[\"2u.com\",\"protonmail.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"15976972708\",\"name\":\"360 Incentives\",\"domain_names\":[\"360incentives.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"15976972728\",\"name\":\"3Cinteractive\",\"domain_names\":[\"3c.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"1803986017\",\"name\":\"40 Proof\",\"domain_names\":[\"40proof.org\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"15976972748\",\"name\":\"757 Creative Space\",\"domain_names\":[\"sparkfarms.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"360010440174\",\"name\":\"8254111111111\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"15976972768\",\"name\":\"8th Sphere\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"15976972788\",\"name\":\"A10 Capital\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"15976972808\",\"name\":\"ABA English\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"15976972828\",\"name\":\"abbeal\",\"domain_names\":[\"abbeal.com\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10779027607\",\"name\":\"Allied Agent Office\",\"domain_names\":[\"allied.org\",\"allied.co.uk\",\"allied.biz\",\"allied.com\",\"allied-new.org\",\"allied-new.biz\",\"allied-new.com\",\"allied-new.co.uk\",\"allied.tv\",\"allied.ly\",\"allied.ca\",\"allied.fr\",\"allied.it\",\"allied.de\",\"allied.es\",\"allied.au\",\"allied.jp\",\"allied.br\",\"allied.pr\",\"allied.pt\"],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838802148\",\"name\":\"Ardan's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778644267\",\"name\":\"Asian Fusion\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838816968\",\"name\":\"Avant Garde Appraisal\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778648407\",\"name\":\"Avant Garde Interior Designs\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10839371968\",\"name\":\"Barbara Todd Org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"20287205127\",\"name\":\"Beecher Supply\",\"domain_names\":[\"some_domain.com\"],\"details\":\"Secondary supplier for Olympus\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838814688\",\"name\":\"Blockbuster Music\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"6894522008\",\"name\":\"Bob's super ford\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838814908\",\"name\":\"Bodega Club\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838810348\",\"name\":\"Bugle Boy\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838818988\",\"name\":\"Builders Emporium\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"2208998868\",\"name\":\"Burlington Textiles Corp of America\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Direct\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778650407\",\"name\":\"Circuit City\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838839568\",\"name\":\"Clemens Markets\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838814808\",\"name\":\"Country Club Markets\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778642187\",\"name\":\"Country Club Markets2\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778617287\",\"name\":\"Crazy Tiger\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838800148\",\"name\":\"Deco Refreshments, Inc.\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"2208998888\",\"name\":\"Dickenson plc\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Channel\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838837488\",\"name\":\"Dun Rite Lawn Care\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"2208998858\",\"name\":\"Edge Communications\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Direct\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"15976972688\",\"name\":\"Education 360\",\"domain_names\":[\"360eproductions.com\"],\"details\":\"Dr Smith, Joan\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838798148\",\"name\":\"Eisner Food Stores\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778646327\",\"name\":\"Eisner Food Stores2\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10778637947\",\"name\":\"Erol's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"2208998908\",\"name\":\"Express Logistics and Transport\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Channel\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838812608\",\"name\":\"Express Merchant Service\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"6983191847\",\"name\":\"External ID Org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778619527\",\"name\":\"Farrell's Ice Cream Parlour\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"360039599453\",\"name\":\"fast org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838795988\",\"name\":\"Food Giant\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838812528\",\"name\":\"Food Mart\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838798008\",\"name\":\"Frame Scene\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838833168\",\"name\":\"Gamma Grays\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"2208998828\",\"name\":\"GenePoint\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Channel\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778654527\",\"name\":\"Gold Medal\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"2208998898\",\"name\":\"Grand Hotels & Resorts Ltd\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Direct\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778646307\",\"name\":\"Grey Fade\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838833248\",\"name\":\"Hamady Bros. Supermarkets\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838812648\",\"name\":\"Helios Air\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838808268\",\"name\":\"Herman's World of Sporting Goods\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778656647\",\"name\":\"Home Quarters Warehouse\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838812408\",\"name\":\"HomeBase\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778617367\",\"name\":\"House Of Denmark\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838814868\",\"name\":\"Hudson's MensWear\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838793928\",\"name\":\"Incluesiv\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10778656627\",\"name\":\"Indiewealth\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"20287205107\",\"name\":\"International Widgets\",\"domain_names\":[\"intlwidgets.com\"],\"details\":\"West coast distributor of our product\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"7660595647\",\"name\":\"IOU Money\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10779004187\",\"name\":\"Joe SR Org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10787647727\",\"name\":\"Joe SR Private Org\",\"domain_names\":[],\"details\":\"line 2\\nline 3\",\"notes\":\"here are some notes\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838835348\",\"name\":\"John Plain\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778642047\",\"name\":\"Kleinhans\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778642107\",\"name\":\"Knox Lumber\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838812488\",\"name\":\"Laura Ashley\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838831148\",\"name\":\"Life Map\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838839548\",\"name\":\"Lionel Playworld\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838839528\",\"name\":\"Matrix Architectural Service\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778615267\",\"name\":\"Merrymaking\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778623727\",\"name\":\"Merrymaking2\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838812568\",\"name\":\"Mervyn's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838829148\",\"name\":\"Mighty Casey's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838835388\",\"name\":\"Monk Home Funding Services\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778642167\",\"name\":\"Monk House Sales\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10516372027\",\"name\":\"Mr Fireworks\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838835488\",\"name\":\"Mr. Steak\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838810308\",\"name\":\"MVP Sports\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10778635907\",\"name\":\"National Hardgoods Distributors\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778646387\",\"name\":\"Northern Reflections\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10838821028\",\"name\":\"Odyssey Records & Tapes\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10838823068\",\"name\":\"Ole's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778656607\",\"name\":\"Opticomp\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778652467\",\"name\":\"Pro-Care Garden Maintenance\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10778642087\",\"name\":\"Purity\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"2208998878\",\"name\":\"Pyramid Construction Inc.\",\"domain_names\":[],\"details\":\"\",\"notes\":\"Customer - Channel\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"3535315768\",\"name\":\"Rackspace Corporate\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"3535317298\",\"name\":\"Rackspace Infrastructure\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838812668\",\"name\":\"Red Bears Tavern\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10778654467\",\"name\":\"Red Food\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"latam\"}},{\"external_id\":\"10778640027\",\"name\":\"Romp\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838903188\",\"name\":\"Sally SR Org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"emea\"}},{\"external_id\":\"10778656707\",\"name\":\"Sandy's\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"amer\"}},{\"external_id\":\"10838980228\",\"name\":\"Seth Means Org\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"vip\",\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}},{\"external_id\":\"10838810388\",\"name\":\"Sew-Fro Fabrics\",\"domain_names\":[],\"details\":\"\",\"notes\":\"\",\"tags\":[\"mcopland\"],\"organization_fields\":{\"merchant_id\":\"apac\"}}]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/organizations/create_many",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations",
+								"create_many"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Organization",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/organizations/1900010765345",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organizations",
+								"1900010765345"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Show Specified User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/1515157515241",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"1515157515241"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "role[]",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "role[]",
+									"value": "agent",
+									"disabled": true
+								},
+								{
+									"key": "role[]",
+									"value": "end-user",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Users Page n",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users.json?page=2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Deleted Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/deleted_users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deleted_users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n\r\n    \"external_id\": \"370117946474\",\r\n    \"name\": \"George\",\r\n    \"email\": \"change_this_email@mail.com\",\r\n    \"organization_id\": 1500493434021,\r\n    \"role\": \"agent\",\r\n    \"notes\": \"\",\r\n    \"tags\": [\r\n      \"duplicate_email\",\r\n      \"george@example.com\",\r\n      \"mcopland\"\r\n    ],\r\n    \"user_fields\": {\r\n      \"group\": \"Product Support - CE\",\r\n      \"api_subscription\": \"plan_bronze\",\r\n      \"employee_id\": \"\",\r\n      \"promotion_code\": \"numquamaterror\"\r\n    },\r\n    \"verified\": true\r\n\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Many Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\":\r\n\r\n[\r\n  {\r\n    \"external_id\": \"365226352533\",\r\n    \"name\": \"John Example\",\r\n    \"email\": \"\",\r\n    \"organization_id\": 1500493432741,\r\n    \"role\": \"end-user\",\r\n    \"notes\": \"\",\r\n    \"tags\": [\r\n      \"duplicate_email\",\r\n      \"john@example.com\",\r\n      \"mcopland\",\r\n      \"demoted\"\r\n    ],\r\n    \"user_fields\": {\r\n      \"group\": \"Product Support - CE\",\r\n      \"api_subscription\": \"plan_silver\",\r\n      \"employee_id\": \"\",\r\n      \"promotion_code\": \"minusatenetur\"\r\n    },\r\n    \"verified\": true\r\n  },\r\n  {\r\n    \"external_id\": \"370117946474\",\r\n    \"name\": \"George\",\r\n    \"email\": \"george@example.com\",\r\n    \"organization_id\": 1500493434021,\r\n    \"role\": \"agent\",\r\n    \"notes\": \"\",\r\n    \"tags\": [\r\n      \"duplicate_email\",\r\n      \"george@example.com\",\r\n      \"mcopland\"\r\n    ],\r\n    \"user_fields\": {\r\n      \"group\": \"Product Support - CE\",\r\n      \"api_subscription\": \"plan_bronze\",\r\n      \"employee_id\": \"\",\r\n      \"promotion_code\": \"numquamaterror\"\r\n    },\r\n    \"verified\": true\r\n  }\r\n]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/create_many",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"create_many"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Many Memberships",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"organization_memberships\":\r\n\r\n[{\"user_id\":1515157455622,\"organization_id\":1500494009842},{\"user_id\":1515157455622,\"organization_id\":1500493434021},{\"user_id\":1515157455722,\"organization_id\":1500494009742},{\"user_id\":1515157455722,\"organization_id\":1500493433941},{\"user_id\":1515157493002,\"organization_id\":1500493432221},{\"user_id\":1515157493002,\"organization_id\":1500494009562},{\"user_id\":1515157503042,\"organization_id\":1500493432221},{\"user_id\":1515157521142,\"organization_id\":1500493680022},{\"user_id\":1515157521742,\"organization_id\":1500493680022},{\"user_id\":1515157535182,\"organization_id\":1500493432341},{\"user_id\":1515157535182,\"organization_id\":1500494009562},{\"user_id\":1515157535442,\"organization_id\":1500493432341},{\"user_id\":1515157535502,\"organization_id\":1500493432661},{\"user_id\":1515157547342,\"organization_id\":1500493433461},{\"user_id\":1515157547342,\"organization_id\":1500493433561},{\"user_id\":1515157547622,\"organization_id\":1500493432621},{\"user_id\":1515157577642,\"organization_id\":1500493432341},{\"user_id\":1515157577642,\"organization_id\":1500493433941},{\"user_id\":1515157577882,\"organization_id\":1500493344281},{\"user_id\":1515157577882,\"organization_id\":1900011199545}]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/organization_memberships/create_many",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"organization_memberships",
+								"create_many"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"email\": \"roge@example.org\",\r\n    \"name\": \"Roger Wilco\",\r\n    \"role\": \"agent\",\r\n    \"verified\": true\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/1901241082785",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"1901241082785"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Permanently",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"email\": \"roge@example.org\",\r\n    \"name\": \"Roger Wilco\",\r\n    \"role\": \"agent\",\r\n    \"verified\": true\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/deleted_users/1515151590902",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deleted_users",
+								"1515151590902"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Show Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tickets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Tickets Page n",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tickets.json?page=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets.json"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Specified Ticket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tickets/210.json",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets",
+								"210.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tickets/count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Ticket Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/ticket_fields",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ticket_fields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Deleted Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/deleted_tickets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deleted_tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ticket\": {\r\n\r\n\"external_id\": \"3799\",\r\n    \"assignee_id\": 1515157514721,\r\n    \"created_at\": \"2018-01-11T18:00:20Z\",\r\n    \"subject\": \"I want to work for EatWell! \",\r\n    \"description\": \"I love your app so much that I want to work with you guys! Do you have any openings?\",\r\n    \"status\": \"hold\",\r\n    \"submitter_id\": 1515157514661,\r\n    \"requester_id\": 7858067547,\r\n    \"updated_at\": \"2018-09-06T20:06:32Z\",\r\n    \"due_at\": \"2018-09-27T17:00:00Z\",\r\n    \"tags\": [\r\n      \"amer_region\",\r\n      \"gold\",\r\n      \"paid\",\r\n      \"product_a\",\r\n      \"subscription_silver\",\r\n      \"mcopland\"\r\n    ],\r\n    \"custom_fields\": [\r\n      {\r\n        \"id\": 1500007863541,\r\n        \"value\": \"becoming_a_merchant__billing\"\r\n      },\r\n      {\r\n        \"id\": 1500007863721,\r\n        \"value\": \"Circus World\"\r\n      },\r\n      {\r\n        \"id\": 1500007863561,\r\n        \"value\": \"finance\"\r\n      },\r\n      {\r\n        \"id\": 1900000575025,\r\n        \"value\": 76054708\r\n      },\r\n      {\r\n        \"id\": 1500007924382,\r\n        \"value\": \"product_3\"\r\n      },\r\n      {\r\n        \"id\": 1500007924362,\r\n        \"value\": \"2018-08-06\"\r\n      },\r\n      {\r\n        \"id\": 1900000575045,\r\n        \"value\": \"\"\r\n      }\r\n    ],\r\n    \"comments\": [\r\n      {\r\n        \"author_id\": 1515157514661,\r\n        \"html_body\": \"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">I love your app so much that I want to work with you guys! Do you have any openings?</p></div>\",\r\n        \"public\": true,\r\n        \"created_at\": \"2018-01-11T18:00:20Z\"\r\n      }\r\n    ]\r\n\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tickets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ticket Bulk Import",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tickets\":\r\n\r\n[{\"external_id\":\"8013\",\"assignee_id\":1515157514841,\"created_at\":\"2018-12-31T16:00:18Z\",\"subject\":\"Catering?\",\"description\":\"Hello. I love your app! Any chance you'd cater an event and bring all the food?\",\"status\":\"pending\",\"submitter_id\":1515157514781,\"requester_id\":7858174327,\"updated_at\":\"2018-12-31T16:00:18Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"no_csat\",\"paid\",\"plan_gold\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Handy Dan\"},{\"id\":1500007863561,\"value\":\"customer_support\"},{\"id\":1900000575025,\"value\":25589286},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2018-09-16\"},{\"id\":1900000575045,\"value\":\"bronze\"}],\"comments\":[{\"author_id\":1515157514781,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hello. I love your app! Any chance you'd cater an event and bring all the food?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:18Z\"}]},{\"external_id\":\"8014\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:18Z\",\"subject\":\"Patrick is the best Courier!\",\"description\":\"Hi. I just wanted to let you know that Patrick was the most polite and punctual courier ever! He delivered my morning coffee in under 10 minutes. He deserves a raise!\",\"status\":\"new\",\"submitter_id\":1515157514821,\"requester_id\":7929180588,\"updated_at\":\"2018-12-31T16:00:18Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"emea\",\"no_csat\",\"paid\",\"plan_silver\",\"resigned\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"training\"},{\"id\":1500007863721,\"value\":\"Knox Lumber\"},{\"id\":1500007863561,\"value\":\"marketing__b\"},{\"id\":1900000575025,\"value\":58427366},{\"id\":1500007924382,\"value\":\"product_2\"},{\"id\":1500007924362,\"value\":\"2019-02-08\"},{\"id\":1900000575045,\"value\":\"silver\"}],\"comments\":[{\"author_id\":1515157514821,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi. I just wanted to let you know that Patrick was the most polite and punctual courier ever! He delivered my morning coffee in under 10 minutes. He deserves a raise!<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:18Z\"}]},{\"external_id\":\"8015\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:19Z\",\"subject\":\"Farmer's market deliveries?\",\"description\":\"Would you consider doing Saturday-only deliveries from the farmer's market? I'd love to get some fresh produce & flowers delivered.\",\"status\":\"open\",\"submitter_id\":1515157514821,\"requester_id\":7929180588,\"updated_at\":\"2018-12-31T16:00:19Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"emea\",\"no_csat\",\"paid\",\"plan_silver\",\"resigned\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"becoming_a_merchant__billing\"},{\"id\":1500007863721,\"value\":\"Bold Ideas\"},{\"id\":1500007863561,\"value\":\"sales\"},{\"id\":1900000575025,\"value\":88093053},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-12-01\"},{\"id\":1900000575045,\"value\":\"\"}],\"comments\":[{\"author_id\":1515157514821,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Would you consider doing Saturday-only deliveries from the farmer's market? I'd love to get some fresh produce &amp; flowers delivered.<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:19Z\"}]},{\"external_id\":\"8016\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:20Z\",\"subject\":\"Yearly subscription?\",\"description\":\"Is there a yearly subscription\\/membership available? I like to pay things all at once!\",\"status\":\"pending\",\"submitter_id\":1515157514661,\"requester_id\":7858067547,\"updated_at\":\"2018-12-31T16:00:20Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"chef_dequipe\",\"no_csat\",\"paid\",\"plan_gold\",\"product_a\",\"subscription_silver\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"complaint\"},{\"id\":1500007863721,\"value\":\"Quality Event Planner\"},{\"id\":1500007863561,\"value\":\"\"},{\"id\":1900000575025,\"value\":89211715},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-11-26\"},{\"id\":1900000575045,\"value\":\"\"}],\"comments\":[{\"author_id\":1515157514661,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Is there a yearly subscription\\/membership available? I like to pay things all at once!<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:20Z\"}]},{\"external_id\":\"8017\",\"assignee_id\":1515157514801,\"created_at\":\"2018-12-31T16:00:21Z\",\"subject\":\"Local Farmers Markets\",\"description\":\"Hi, are there any future plans to include mid-week farmer's market deliveries?\",\"status\":\"open\",\"submitter_id\":1515157514781,\"requester_id\":7858174327,\"updated_at\":\"2018-12-31T16:00:21Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"no_csat\",\"paid\",\"plan_gold\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"becoming_a_merchant__billing\"},{\"id\":1500007863721,\"value\":\"Access Asia\"},{\"id\":1500007863561,\"value\":\"\"},{\"id\":1900000575025,\"value\":70111503},{\"id\":1500007924382,\"value\":\"\"},{\"id\":1500007924362,\"value\":\"2018-04-30\"},{\"id\":1900000575045,\"value\":\"silver\"}],\"comments\":[{\"author_id\":1515157514781,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, are there any future plans to include mid-week farmer's market deliveries?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:21Z\"}]},{\"external_id\":\"8018\",\"assignee_id\":380963802813,\"created_at\":\"2018-12-31T16:00:21Z\",\"subject\":\"Double charged!!\",\"description\":\"Hey- I got double charged for the order I placed last Monday. Can I get a refund?\",\"status\":\"pending\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:21Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"training\"},{\"id\":1500007863721,\"value\":\"Club Wholesale\"},{\"id\":1500007863561,\"value\":\"sales\"},{\"id\":1900000575025,\"value\":57607423},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-07-19\"},{\"id\":1900000575045,\"value\":\"gold\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hey- I got double charged for the order I placed last Monday. Can I get a refund?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:21Z\"}]},{\"external_id\":\"8019\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:22Z\",\"subject\":\"Refund\",\"description\":\"I'd like a refund of my recent order. The pizza was late and cold.\",\"status\":\"pending\",\"submitter_id\":1515157514781,\"requester_id\":7858174327,\"updated_at\":\"2018-12-31T16:00:22Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"no_csat\",\"paid\",\"plan_gold\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"becoming_a_merchant__billing\"},{\"id\":1500007863721,\"value\":\"Montana's Cookhouse\"},{\"id\":1500007863561,\"value\":\"marketing__b\"},{\"id\":1900000575025,\"value\":58188116},{\"id\":1500007924382,\"value\":\"product_2\"},{\"id\":1500007924362,\"value\":\"2018-02-04\"},{\"id\":1900000575045,\"value\":\"\"}],\"comments\":[{\"author_id\":1515157514781,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">I'd like a refund of my recent order. The pizza was late and cold.<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:22Z\"}]},{\"external_id\":\"8020\",\"assignee_id\":1515157514741,\"created_at\":\"2018-12-31T16:00:23Z\",\"subject\":\"Overpriced and sad\",\"description\":\"Hello, why are some of your prices sooo much higher than in the actual store? I get that you have to make money, but a bag of candy shouldn't cost $3. That is all.\",\"status\":\"pending\",\"submitter_id\":1515157514661,\"requester_id\":7858067547,\"updated_at\":\"2018-12-31T16:00:23Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"chef_dequipe\",\"no_csat\",\"paid\",\"plan_gold\",\"product_a\",\"subscription_silver\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"training\"},{\"id\":1500007863721,\"value\":\"Leo's Stereo\"},{\"id\":1500007863561,\"value\":\"marketing__a\"},{\"id\":1900000575025,\"value\":32125123},{\"id\":1500007924382,\"value\":\"\"},{\"id\":1500007924362,\"value\":\"2019-01-21\"},{\"id\":1900000575045,\"value\":\"bronze\"}],\"comments\":[{\"author_id\":1515157514661,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hello, why are some of your prices sooo much higher than in the actual store? I get that you have to make money, but a bag of candy shouldn't cost $3. That is all.<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:23Z\"}]},{\"external_id\":\"8021\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:24Z\",\"subject\":\"App freezes when logging in\",\"description\":\"Hi, Whenever I try to log in to your app, it freezes up on my phone. I'm using a Blackberry- could that be the issue?\",\"status\":\"open\",\"submitter_id\":1515157514661,\"requester_id\":7858067547,\"updated_at\":\"2018-12-31T16:00:24Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"chef_dequipe\",\"no_csat\",\"paid\",\"plan_gold\",\"product_a\",\"subscription_silver\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"food_delivery\"},{\"id\":1500007863721,\"value\":\"Jay Jacobs\"},{\"id\":1500007863561,\"value\":\"marketing__a\"},{\"id\":1900000575025,\"value\":3363860},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-01-23\"},{\"id\":1900000575045,\"value\":\"bronze\"}],\"comments\":[{\"author_id\":1515157514661,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, Whenever I try to log in to your app, it freezes up on my phone. I'm using a Blackberry- could that be the issue?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:24Z\"}]},{\"external_id\":\"8022\",\"assignee_id\":1515157514701,\"created_at\":\"2018-12-31T16:00:24Z\",\"subject\":\"Colors in app\",\"description\":\"Hello, Can you get your development team to use darker text colors? It's really hard to read the light grey text that's sometimes used in your app.\",\"status\":\"open\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:24Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Flexus\"},{\"id\":1500007863561,\"value\":\"marketing__b\"},{\"id\":1900000575025,\"value\":59389731},{\"id\":1500007924382,\"value\":\"product_1\"},{\"id\":1500007924362,\"value\":\"2019-09-02\"},{\"id\":1900000575045,\"value\":\"bronze\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hello, Can you get your development team to use darker text colors? It's really hard to read the light grey text that's sometimes used in your app.<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:24Z\"}]},{\"external_id\":\"8023\",\"assignee_id\":1515157514801,\"created_at\":\"2018-12-31T16:00:25Z\",\"subject\":\"Give Dave a raise\",\"description\":\"Dave was crazy fast. Like super super fast.\",\"status\":\"pending\",\"submitter_id\":1515157514821,\"requester_id\":7929180588,\"updated_at\":\"2018-12-31T16:00:25Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"emea\",\"no_csat\",\"paid\",\"plan_silver\",\"resigned\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"becoming_a_courier\"},{\"id\":1500007863721,\"value\":\"Freedom Map\"},{\"id\":1500007863561,\"value\":\"finance\"},{\"id\":1900000575025,\"value\":68483547},{\"id\":1500007924382,\"value\":\"\"},{\"id\":1500007924362,\"value\":\"2019-07-29\"},{\"id\":1900000575045,\"value\":\"bronze\"}],\"comments\":[{\"author_id\":1515157514821,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Dave was crazy fast. Like super super fast.<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:25Z\"}]},{\"external_id\":\"8024\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:26Z\",\"subject\":\"Referral Program\",\"description\":\"Hi, do you have a referral program? I love your service and want to share with friends! \",\"status\":\"open\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:26Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"\"},{\"id\":1500007863721,\"value\":\"Wise Appraisals\"},{\"id\":1500007863561,\"value\":\"finance\"},{\"id\":1900000575025,\"value\":3182559},{\"id\":1500007924382,\"value\":\"product_1\"},{\"id\":1500007924362,\"value\":\"2019-08-31\"},{\"id\":1900000575045,\"value\":\"platinum\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, do you have a referral program? I love your service and want to share with friends!<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:26Z\"}]},{\"external_id\":\"8025\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:34Z\",\"subject\":\"Cold Pizza\",\"description\":\"Hi, I ordered pizza last night for dinner and by the time it arrived it was cold...\",\"status\":\"open\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:34Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Chargepal\"},{\"id\":1500007863561,\"value\":\"finance\"},{\"id\":1900000575025,\"value\":19846206},{\"id\":1500007924382,\"value\":\"product_1\"},{\"id\":1500007924362,\"value\":\"2019-08-31\"},{\"id\":1900000575045,\"value\":\"platinum\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, I ordered pizza last night for dinner and by the time it arrived it was cold...<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:34Z\"}]},{\"external_id\":\"8026\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:36Z\",\"subject\":\"Styling service?\",\"description\":\"Hi, I really hate shopping, it would be great if you added a styling service! \",\"status\":\"new\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:36Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Universal Design Partners\"},{\"id\":1500007863561,\"value\":\"marketing__b\"},{\"id\":1900000575025,\"value\":25589286},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-05-07\"},{\"id\":1900000575045,\"value\":\"platinum\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, I really hate shopping, it would be great if you added a styling service!<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:36Z\"}]},{\"external_id\":\"8027\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:36Z\",\"subject\":\"Add second address\",\"description\":\"I would like to add a second delivery address to my account. How do I do this?\",\"status\":\"new\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:36Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"becoming_a_courier\"},{\"id\":1500007863721,\"value\":\"Solution Realty\"},{\"id\":1500007863561,\"value\":\"sales\"},{\"id\":1900000575025,\"value\":91032926},{\"id\":1500007924382,\"value\":\"product_3\"},{\"id\":1500007924362,\"value\":\"2019-02-24\"},{\"id\":1900000575045,\"value\":\"gold\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">I would like to add a second delivery address to my account. How do I do this?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:36Z\"}]},{\"external_id\":\"8028\",\"assignee_id\":null,\"created_at\":\"2018-12-31T16:00:37Z\",\"subject\":\"Can I share my account?\",\"description\":\"Hi, I would like to share my account with my husband. Can we have two logins for one account?\",\"status\":\"open\",\"submitter_id\":1515157514821,\"requester_id\":7929180588,\"updated_at\":\"2018-12-31T16:00:37Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"emea\",\"no_csat\",\"paid\",\"plan_silver\",\"resigned\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Lee Wards\"},{\"id\":1500007863561,\"value\":\"finance\"},{\"id\":1900000575025,\"value\":22604461},{\"id\":1500007924382,\"value\":\"product_1\"},{\"id\":1500007924362,\"value\":\"2018-10-31\"},{\"id\":1900000575045,\"value\":\"platinum\"}],\"comments\":[{\"author_id\":1515157514821,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, I would like to share my account with my husband. Can we have two logins for one account?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:37Z\"}]},{\"external_id\":\"8029\",\"assignee_id\":1515157514721,\"created_at\":\"2018-12-31T16:00:38Z\",\"subject\":\"Acai bowls please!\",\"description\":\"There's a new spot on 3rd street with amazing bowls! Get on it!\",\"status\":\"pending\",\"submitter_id\":1515157514781,\"requester_id\":7858174327,\"updated_at\":\"2018-12-31T16:00:38Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"no_csat\",\"paid\",\"plan_gold\",\"vip_user\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"billing\"},{\"id\":1500007863721,\"value\":\"Whitlocks Auto Supply\"},{\"id\":1500007863561,\"value\":\"customer_support\"},{\"id\":1900000575025,\"value\":16068137},{\"id\":1500007924382,\"value\":\"product_1\"},{\"id\":1500007924362,\"value\":\"2019-08-13\"},{\"id\":1900000575045,\"value\":\"platinum\"}],\"comments\":[{\"author_id\":1515157514781,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">There's a new spot on 3rd street with amazing bowls! Get on it!<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:38Z\"}]},{\"external_id\":\"8030\",\"assignee_id\":1515157514701,\"created_at\":\"2018-12-31T16:00:38Z\",\"subject\":\"Change CC info\",\"description\":\"Hi, I would like to change my credit card info on my account. How can I do this?\",\"status\":\"pending\",\"submitter_id\":1515157514761,\"requester_id\":7858119547,\"updated_at\":\"2018-12-31T16:00:38Z\",\"due_at\":\"\",\"tags\":[\"amer_region\",\"apac\",\"aus_nsw\",\"co-op\",\"gold\",\"no_csat\",\"paid\",\"san_francisco\",\"vip\",\"mcopland\"],\"custom_fields\":[{\"id\":1500007863541,\"value\":\"complaint\"},{\"id\":1500007863721,\"value\":\"Rainbow Records\"},{\"id\":1500007863561,\"value\":\"customer_support\"},{\"id\":1900000575025,\"value\":80220563},{\"id\":1500007924382,\"value\":\"product_2\"},{\"id\":1500007924362,\"value\":\"2019-08-05\"},{\"id\":1900000575045,\"value\":\"\"}],\"comments\":[{\"author_id\":1515157514761,\"html_body\":\"<div class=\\\"zd-comment\\\"><p dir=\\\"auto\\\">Hi, I would like to change my credit card info on my account. How can I do this?<\\/p><\\/div>\",\"public\":true,\"created_at\":\"2018-12-31T16:00:38Z\"}]}]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/imports/tickets/create_many",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"imports",
+								"tickets",
+								"create_many"
+							],
+							"query": [
+								{
+									"key": "archive_immediately",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"email\": \"roge@example.org\",\r\n    \"name\": \"Roger Wilco\",\r\n    \"role\": \"agent\",\r\n    \"verified\": true\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tickets/215",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets",
+								"215"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticket Permanently",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"email\": \"roge@example.org\",\r\n    \"name\": \"Roger Wilco\",\r\n    \"role\": \"agent\",\r\n    \"verified\": true\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/deleted_tickets/215",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"deleted_tickets",
+								"215"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket Comments",
+			"item": [
+				{
+					"name": "Create Ticket Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ticket\": {\r\n    \"comment\": {\r\n      \"body\": \"The smoke is very colorful.\"\r\n    },\r\n    \"priority\": \"urgent\",\r\n    \"subject\": \"My printer is on fire!\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tickets/{{ticket_id}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tickets",
+								"{{ticket_id}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Show Me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/me.json",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"me.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Job Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/job_statuses/f141ad846028f56a8321f40476e9d24c",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"job_statuses",
+						"f141ad846028f56a8321f40476e9d24c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/groups",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{userEmail}}/token",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
